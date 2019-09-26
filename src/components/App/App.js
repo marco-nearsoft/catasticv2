@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-const ConnectedApp = props => {
+const App = props => {
   return (
     <div>hello world</div>
   );
