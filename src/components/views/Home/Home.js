@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { setCurrentImage } from "../../../redux/actions";
 import Loader from "react-loader-spinner";
+import {
+  setCurrentImage,
+  startFetchingCurrentImage
+} from "../../../redux/actions";
 import style from "./style";
 
 const ConnectedHome = props => {
+
+  useEffect(() => {
+    props.startFetchingCurrentImage();
+  }, []);
+
   return (
     <main css={style}>
       <div className="image-wrapper">
@@ -14,11 +22,10 @@ const ConnectedHome = props => {
           <img className="main-image" src={props.currentImage.url} />
         ) : (
           <Loader
+            className="custom-loader"
             type="Circles"
-            color="#06ca06"
             height={100}
             width={100}
-            css={style.loader}
           />
         )}
       </div>
@@ -41,7 +48,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  setCurrentImage
+  setCurrentImage,
+  startFetchingCurrentImage
 };
 
 const Home = connect(
