@@ -53,6 +53,9 @@ const style = css`
   & .buttons-wrapper .accept:hover {
     color: green;
   }
+  & .custom-loader {
+    color: #06ca06;
+  }
 `;
 
 export default style;
