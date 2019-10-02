@@ -8,8 +8,15 @@ const style = css`
 
   & .navlink {
     text-decoration: none;
-    padding: 2rem;
+    padding: 1rem 2rem;
     display: inline-block;
+    font-size: 1rem;
+    font-family: sans-serif;
+    margin: 1rem 0;
+  }
+  & .active {
+    background-color: #000;
+    color: #fff;
   }
 `;
 

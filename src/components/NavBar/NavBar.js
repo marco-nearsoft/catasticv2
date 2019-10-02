@@ -6,7 +6,7 @@ const NavBar = () => {
   return (
     <div css={style}>
       <NavLink className="navlink" exact to="/">Home</NavLink>
-      <NavLink className="navlink" to="/favorites">Favorites</NavLink>
+      <NavLink className="navlink" to="/favorites">Favs</NavLink>
     </div>
   );
 };
