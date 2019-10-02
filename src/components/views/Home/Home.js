@@ -10,9 +10,10 @@ import {
 import style from "./style";
 
 const ConnectedHome = props => {
-
   useEffect(() => {
-    props.startFetchingCurrentImage();
+    if (!props.currentImage.url) {
+      props.startFetchingCurrentImage();
+    }
   }, []);
 
   return (
