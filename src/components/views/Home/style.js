@@ -10,21 +10,21 @@ const style = css`
     width: 90%;
   }
 
-  & .main-image {
+  .main-image {
     width: 100%;
   }
-  & .image-wrapper {
+  .image-wrapper {
     padding: 2rem;
     box-shadow: 0rem 0rem 1rem 0.5rem rgba(0, 0, 0, 0.2);
     @media (max-width: 400px) {
       padding: 1rem;
     }
   }
-  & .buttons-wrapper {
+  .buttons-wrapper {
     position: relative;
     top: -2rem;
   }
-  & .buttons-wrapper button {
+  .buttons-wrapper button {
     font-size: 2rem;
     background-color: #fff;
     padding: 1rem;
@@ -42,15 +42,15 @@ const style = css`
       margin: 1rem auto;
     }
   }
-  & .buttons-wrapper button:hover {
+  .buttons-wrapper button:hover {
     color: red;
     transform: scale(1.1);
     box-shadow: 0.5rem 0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
   }
-  & .buttons-wrapper .reject:hover {
+  .buttons-wrapper .reject:hover {
     color: red;
   }
-  & .buttons-wrapper .accept:hover {
+  .buttons-wrapper .accept:hover {
     color: green;
   }
 `;
