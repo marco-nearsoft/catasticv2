@@ -8,11 +8,11 @@ const style = css`
 
   & .navlink {
     text-decoration: none;
-    padding: 1rem 2rem;
+    padding: 2rem 3rem;
     display: inline-block;
-    font-size: 1rem;
+    font-size: 2rem;
     font-family: sans-serif;
-    margin: 1rem 0;
+    margin: 2rem 0;
   }
   & .active {
     background-color: #000;

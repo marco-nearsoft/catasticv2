@@ -1,5 +1,7 @@
 import { css } from "@emotion/core";
 
+const green = "#06ca06";
+
 const style = css`
   width: 80%;
   margin: auto;
@@ -14,36 +16,34 @@ const style = css`
     width: 100%;
   }
   & .image-wrapper {
-    padding: 2rem;
+    padding: 2.5rem;
     box-shadow: 0rem 0rem 1rem 0.5rem rgba(0, 0, 0, 0.2);
     @media (max-width: 400px) {
-      padding: 1rem;
+      padding: 2rem;
     }
   }
   & .buttons-wrapper {
     position: relative;
-    top: -2rem;
+    top: -3rem;
   }
   & .buttons-wrapper button {
-    font-size: 2rem;
+    font-size: 3rem;
     background-color: #fff;
-    padding: 1rem;
     border: 0.01rem solid #ccc;
     border-radius: 50rem;
-    width: 6rem;
-    height: 6rem;
-    margin: 0 1rem;
+    width: 8rem;
+    height: 8rem;
+    margin: 0 2rem;
     cursor: pointer;
     transition: all 0.2s;
     @media (max-width: 400px) {
-      width: 5rem;
-      height: 5rem;
+      width: 7rem;
+      height: 7rem;
       display: block;
-      margin: 1rem auto;
+      margin: 2rem auto;
     }
   }
   & .buttons-wrapper button:hover {
-    color: red;
     transform: scale(1.1);
     box-shadow: 0.5rem 0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
   }
@@ -51,10 +51,10 @@ const style = css`
     color: red;
   }
   & .buttons-wrapper .accept:hover {
-    color: green;
+    color: ${green};
   }
   & .custom-loader {
-    color: #06ca06;
+    color: ${green};
   }
 `;
 
