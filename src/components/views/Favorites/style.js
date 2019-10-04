@@ -17,6 +17,7 @@ const style = css`
     flex-wrap: wrap;
     justify-content: space-between;
   }
+
   .favorites-list-item {
     min-width: 30%;
     height: 20rem;
@@ -24,6 +25,20 @@ const style = css`
     background-size: cover;
     background-repeat: no-repeat;
     margin: 1%;
+    position: relative;
+  }
+
+  .remove-button {
+    cursor: pointer;
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    color: #fff;
+    background-color: red;
+    padding: 1rem;
+    border-radius: 10rem;
+    width: 2rem;
+    height: 2rem;
   }
 `;
 
