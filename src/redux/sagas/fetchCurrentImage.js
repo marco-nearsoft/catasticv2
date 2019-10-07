@@ -1,18 +1,9 @@
 import { put } from "redux-saga/effects";
-import axios from "axios";
 import { setCurrentImage } from "../actions/";
-
-const axiosOptions = {
-  headers: {
-    api_key: "g00dLuCk"
-  }
-};
+import instance from "../../axiosInstance"; 
 
 function* fetchCurrentImage() {
-  const result = yield axios(
-    "http://localhost:3000/api/images",
-    axiosOptions
-  ).then(response => {
+  const result = yield instance("/images").then(response => {
     return response.data;
   });
 
