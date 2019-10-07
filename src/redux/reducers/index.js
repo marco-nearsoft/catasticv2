@@ -6,10 +6,9 @@ const favorites = (state = [], action) => {
     return action.payload;
   }
   if (action.type === "REMOVE_FROM_FAVORITES") {
-    var filtered = state.filter(function(value) {
+    return state.filter(function(value) {
       return value.id !== action.payload.id;
     });
-    return filtered;
   }
   return state;
 };
