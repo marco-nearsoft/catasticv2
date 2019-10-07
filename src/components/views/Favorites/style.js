@@ -26,6 +26,12 @@ const style = css`
     background-repeat: no-repeat;
     margin: 1%;
     position: relative;
+    @media (max-width: 800px) {
+      width: 48%;
+    }
+    @media (max-width: 500px) {
+      width: 99%;
+    }
   }
 
   .remove-button {
