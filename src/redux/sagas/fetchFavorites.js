@@ -5,6 +5,9 @@ import instance from "../../axiosInstance";
 function* fetchFavorites() {
   const result = yield instance("/images/fav").then(response => {
     return response.data;
+  }).catch(function (error) {
+    console.log(error);
+    return {images: []};
   });
 
   yield put(setFavorites(result.images));
