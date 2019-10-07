@@ -1,16 +1,5 @@
 import { combineReducers } from "redux";
 import currentImage from "./currentImage";
-
-const favorites = (state = [], action) => {
-  if (action.type === "SET_FAVORITES") {
-    return action.payload;
-  }
-  if (action.type === "REMOVE_FROM_FAVORITES") {
-    return state.filter(function(value) {
-      return value.id !== action.payload.id;
-    });
-  }
-  return state;
-};
+import favorites from "./favorites";
 
 export default combineReducers({ currentImage, favorites });

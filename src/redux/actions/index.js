@@ -1,18 +1,8 @@
-import currentImage from "./currentImage";
-
-const { setCurrentImage, startFetchingCurrentImage } = currentImage;
-
-function setFavorites(payload) {
-  return { type: SET_FAVORITES, payload };
-}
-
-function removeFromFavorites(payload) {
-  return { type: REMOVE_FROM_FAVORITES, payload };
-}
-
-function startFetchingFavorites(payload) {
-  return { type: START_FETCHING_FAVORITES, payload };
-}
+import startFetchingCurrentImage from "./startFetchingCurrentImage";
+import setCurrentImage from "./setCurrentImage";
+import setFavorites from "./setFavorites";
+import removeFromFavorites from "./removeFromFavorites";
+import startFetchingFavorites from "./startFetchingFavorites";
 
 export {
   setCurrentImage,
