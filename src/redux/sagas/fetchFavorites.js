@@ -1,13 +1,9 @@
 import { put } from "redux-saga/effects";
-import axios from "axios";
 import { setFavorites } from "../actions/";
-import constants from "../../constants/";
+import instance from "../../axiosInstance";
 
 function* fetchFavorites() {
-  const result = yield axios(
-    "http://localhost:3000/api/images/fav",
-    constants.axiosOptions
-  ).then(response => {
+  const result = yield instance("/images/fav").then(response => {
     return response.data;
   });
 
