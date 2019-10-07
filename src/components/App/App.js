@@ -11,7 +11,7 @@ const App = () => {
     <Router>
       <Global styles={globalStyle} />
       <NavBar />
-      <Route exact path="/" component={Favorites} />
+      <Route exact path="/" component={Home} />
       <Route path="/favorites" component={Favorites} />
     </Router>
   );
