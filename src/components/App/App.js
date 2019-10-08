@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "../views/Home";
 import Favorites from "../views/Favorites";
-import NavBar from "../NavBar/";
+import NavBar from "../NavBar";
 
 const App = () => {
   return (
