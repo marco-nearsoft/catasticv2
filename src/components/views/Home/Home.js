@@ -7,6 +7,7 @@ import {
   setCurrentImage,
   startFetchingCurrentImage
 } from "../../../redux/actions";
+import colors from "../../../constants/colors";
 import style from "./style";
 
 const ConnectedHome = props => {
@@ -23,6 +24,7 @@ const ConnectedHome = props => {
           <img className="main-image" src={props.currentImage.url} />
         ) : (
           <Loader
+            color={colors.green}
             className="custom-loader"
             type="Circles"
             height={100}

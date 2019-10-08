@@ -1,6 +1,5 @@
 import { css } from "@emotion/core";
-
-const green = "#06ca06";
+import colors from "../../../constants/colors";
 
 const style = css`
   width: 80%;
@@ -48,13 +47,13 @@ const style = css`
     box-shadow: 0.5rem 0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
   }
   .buttons-wrapper .reject:hover {
-    color: red;
+    color: ${colors.red};
   }
   .buttons-wrapper .accept:hover {
-    color: ${green};
+    color: ${colors.green};
   }
   .custom-loader {
-    color: ${green};
+    color: ${colors.green};
   }
 `;
 
