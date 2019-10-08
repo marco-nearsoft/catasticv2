@@ -5,7 +5,7 @@ const style = css`
   width: 80%;
   margin: auto;
   text-align: center;
-  max-width: 700px;
+  max-width: 70rem;
   font-size: 3rem;
 
   .page-title {
