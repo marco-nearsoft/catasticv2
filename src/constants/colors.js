@@ -1,6 +1,6 @@
-const colors = {
-    green: "#06ca06",
-    red: "#F21B3F"
+const COLORS = {
+  GREEN: "#06ca06",
+  RED: "#F21B3F"
 };
 
-export default colors;
+export default COLORS;
