@@ -1,8 +1,8 @@
-import startFetchingCurrentImage from "./startFetchingCurrentImage";
-import setCurrentImage from "./setCurrentImage";
-import setFavorites from "./setFavorites";
-import removeFromFavorites from "./removeFromFavorites";
-import startFetchingFavorites from "./startFetchingFavorites";
+import currentImage from "./currentImage";
+import favorites from "./favorites";
+
+const { setCurrentImage, startFetchingCurrentImage } = currentImage;
+const { setFavorites, startFetchingFavorites, removeFromFavorites } = favorites;
 
 export {
   setCurrentImage,
