@@ -1,4 +1,5 @@
 import { css } from "@emotion/core";
+import colors from "../../../constants/colors";
 
 const style = css`
   width: 80%;
@@ -40,7 +41,7 @@ const style = css`
     right: 0.5rem;
     top: 0.5rem;
     color: #fff;
-    background-color: red;
+    background-color: ${colors.red};
     padding: 1rem;
     border-radius: 10rem;
     width: 2rem;
