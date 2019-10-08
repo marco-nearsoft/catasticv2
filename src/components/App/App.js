@@ -4,7 +4,6 @@ import { Global } from "@emotion/core";
 import Home from "../views/Home";
 import Favorites from "../views/Favorites";
 import NavBar from "../NavBar/";
-import { Global } from '@emotion/core'
 import globalStyle from "./globalStyle";
 
 const App = () => {
