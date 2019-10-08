@@ -6,7 +6,7 @@ const style = css`
   text-align: center;
   max-width: 70rem;
 
-  & .navlink {
+  .navlink {
     text-decoration: none;
     padding: 2rem 3rem;
     display: inline-block;
@@ -14,7 +14,7 @@ const style = css`
     font-family: sans-serif;
     margin: 2rem 0;
   }
-  & .active {
+  .active {
     background-color: #000;
     color: #fff;
   }
