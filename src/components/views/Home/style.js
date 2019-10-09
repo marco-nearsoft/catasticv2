@@ -16,7 +16,7 @@ const style = css`
   }
   .image-wrapper {
     padding: 2.5rem;
-    box-shadow: 0rem 0rem 1rem 0.5rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0rem 0rem 1rem 0.5rem ${COLORS.TRANSPARENT_BLACK};
     @media (max-width: 400px) {
       padding: 2rem;
     }
@@ -27,8 +27,8 @@ const style = css`
   }
   .buttons-wrapper button {
     font-size: 3rem;
-    background-color: #fff;
-    border: 0.01rem solid #ccc;
+    background-color: ${COLORS.WHITE};
+    border: 0.01rem solid ${COLORS.LIGHT_GRAY};
     border-radius: 50rem;
     width: 8rem;
     height: 8rem;
@@ -44,7 +44,7 @@ const style = css`
   }
   .buttons-wrapper button:hover {
     transform: scale(1.1);
-    box-shadow: 0.5rem 0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0.5rem 0.5rem 0.5rem 0rem ${COLORS.TRANSPARENT_BLACK};
   }
   .buttons-wrapper .reject:hover {
     color: ${COLORS.RED};
