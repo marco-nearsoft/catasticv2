@@ -40,7 +40,7 @@ const style = css`
     position: absolute;
     right: 0.5rem;
     top: 0.5rem;
-    color: #fff;
+    color: ${COLORS.WHITE};
     background-color: ${COLORS.RED};
     padding: 1rem;
     border-radius: 10rem;
