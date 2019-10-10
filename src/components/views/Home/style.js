@@ -1,10 +1,12 @@
 import { css } from "@emotion/core";
+import COLORS from "../../../constants/COLORS";
+const { TRANSPARENT_BLACK, WHITE, LIGHT_GRAY, RED, GREEN } = COLORS;
 
 const style = css`
   width: 80%;
   margin: auto;
   text-align: center;
-  max-width: 700px;
+  max-width: 70rem;
 
   @media (max-width: 400px) {
     width: 90%;
@@ -14,44 +16,45 @@ const style = css`
     width: 100%;
   }
   .image-wrapper {
-    padding: 2rem;
-    box-shadow: 0rem 0rem 1rem 0.5rem rgba(0, 0, 0, 0.2);
+    padding: 2.5rem;
+    box-shadow: 0rem 0rem 1rem 0.5rem ${TRANSPARENT_BLACK};
     @media (max-width: 400px) {
-      padding: 1rem;
+      padding: 2rem;
     }
   }
   .buttons-wrapper {
     position: relative;
-    top: -2rem;
+    top: -3rem;
   }
   .buttons-wrapper button {
-    font-size: 2rem;
-    background-color: #fff;
-    padding: 1rem;
-    border: 0.01rem solid #ccc;
+    font-size: 3rem;
+    background-color: ${WHITE};
+    border: 0.01rem solid ${LIGHT_GRAY};
     border-radius: 50rem;
-    width: 6rem;
-    height: 6rem;
-    margin: 0 1rem;
+    width: 8rem;
+    height: 8rem;
+    margin: 0 2rem;
     cursor: pointer;
     transition: all 0.2s;
     @media (max-width: 400px) {
-      width: 5rem;
-      height: 5rem;
+      width: 7rem;
+      height: 7rem;
       display: block;
-      margin: 1rem auto;
+      margin: 2rem auto;
     }
   }
   .buttons-wrapper button:hover {
-    color: red;
     transform: scale(1.1);
-    box-shadow: 0.5rem 0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0.5rem 0.5rem 0.5rem 0rem ${TRANSPARENT_BLACK};
   }
   .buttons-wrapper .reject:hover {
-    color: red;
+    color: ${RED};
   }
   .buttons-wrapper .accept:hover {
-    color: green;
+    color: ${GREEN};
+  }
+  .custom-loader {
+    color: ${GREEN};
   }
 `;
 

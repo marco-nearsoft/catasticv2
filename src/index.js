@@ -1,14 +1,15 @@
 import _ from "lodash";
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 import App from "./components/App";
-import style from "./globals.css";
+import store from "./redux/store";
 
 function AppWrapper() {
   return (
-    <div css={style}>
+    <Provider store={store}>
       <App />
-    </div>
+    </Provider>
   );
 }
 
