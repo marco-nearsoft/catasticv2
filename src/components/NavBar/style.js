@@ -1,5 +1,6 @@
 import { css } from "@emotion/core";
 import COLORS from "../../constants/COLORS";
+const { BLACK, WHITE } = COLORS;
 
 const style = css`
   width: 80%;
@@ -16,8 +17,8 @@ const style = css`
     margin: 2rem 0;
   }
   .active {
-    background-color: ${COLORS.BLACK};
-    color: ${COLORS.WHITE};
+    background-color: ${BLACK};
+    color: ${WHITE};
   }
 `;
 

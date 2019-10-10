@@ -1,5 +1,6 @@
 import { css } from "@emotion/core";
 import COLORS from "../../../constants/COLORS";
+const { TRANSPARENT_BLACK, WHITE, LIGHT_GRAY, RED, GREEN } = COLORS;
 
 const style = css`
   width: 80%;
@@ -16,7 +17,7 @@ const style = css`
   }
   .image-wrapper {
     padding: 2.5rem;
-    box-shadow: 0rem 0rem 1rem 0.5rem ${COLORS.TRANSPARENT_BLACK};
+    box-shadow: 0rem 0rem 1rem 0.5rem ${TRANSPARENT_BLACK};
     @media (max-width: 400px) {
       padding: 2rem;
     }
@@ -27,8 +28,8 @@ const style = css`
   }
   .buttons-wrapper button {
     font-size: 3rem;
-    background-color: ${COLORS.WHITE};
-    border: 0.01rem solid ${COLORS.LIGHT_GRAY};
+    background-color: ${WHITE};
+    border: 0.01rem solid ${LIGHT_GRAY};
     border-radius: 50rem;
     width: 8rem;
     height: 8rem;
@@ -44,16 +45,16 @@ const style = css`
   }
   .buttons-wrapper button:hover {
     transform: scale(1.1);
-    box-shadow: 0.5rem 0.5rem 0.5rem 0rem ${COLORS.TRANSPARENT_BLACK};
+    box-shadow: 0.5rem 0.5rem 0.5rem 0rem ${TRANSPARENT_BLACK};
   }
   .buttons-wrapper .reject:hover {
-    color: ${COLORS.RED};
+    color: ${RED};
   }
   .buttons-wrapper .accept:hover {
-    color: ${COLORS.GREEN};
+    color: ${GREEN};
   }
   .custom-loader {
-    color: ${COLORS.GREEN};
+    color: ${GREEN};
   }
 `;
 
