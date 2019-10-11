@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { favoritesListItemBackground } from "./style";
 
-const FavoriteItem = ({ data, removeFromFavorites }) => {
+const FavoriteItem = ({ data, startRemovingFromFavorites }) => {
   return (
     <div
       className="favorites-list-item"
@@ -13,7 +13,7 @@ const FavoriteItem = ({ data, removeFromFavorites }) => {
         icon={faTimes}
         className="remove-button"
         onClick={() => {
-          removeFromFavorites(data);
+          startRemovingFromFavorites(data);
         }}
       />
     </div>

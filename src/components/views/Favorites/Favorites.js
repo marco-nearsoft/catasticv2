@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import style from "./style";
 import {
-  removeFromFavorites,
+  startRemovingFromFavorites,
   startFetchingFavorites
 } from "../../../redux/actions/";
 import FavoriteItem from "./FavoriteItem";
@@ -23,7 +23,7 @@ const ConnectedFavorites = props => {
             <FavoriteItem
               data={image}
               key={image.id}
-              removeFromFavorites={props.removeFromFavorites}
+              startRemovingFromFavorites={props.startRemovingFromFavorites}
             />
           );
         })}
@@ -38,7 +38,7 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = { removeFromFavorites, startFetchingFavorites };
+const mapDispatchToProps = { startRemovingFromFavorites, startFetchingFavorites };
 
 const Favorites = connect(
   mapStateToProps,
