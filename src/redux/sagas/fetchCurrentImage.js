@@ -1,6 +1,6 @@
 import { put, call } from "redux-saga/effects";
 import { setCurrentImage } from "../actions/";
-import instance from "../../axiosInstance"; 
+import instance from "../../axiosInstance";
 
 function* fetchCurrentImage() {
   const response = yield call(instance, "/images");
