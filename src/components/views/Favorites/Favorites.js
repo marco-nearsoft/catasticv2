@@ -1,31 +1,11 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import style from "./style";
 import {
   removeFromFavorites,
   startFetchingFavorites
 } from "../../../redux/actions/";
-
-const FavoriteItem = ({ data, removeFromFavorites }) => {
-  return (
-    <div
-      className="favorites-list-item"
-      style={{
-        backgroundImage: `url(${data.url})`
-      }}
-    >
-      <FontAwesomeIcon
-        icon={faTimes}
-        className="remove-button"
-        onClick={() => {
-          removeFromFavorites(data);
-        }}
-      />
-    </div>
-  );
-};
+import FavoriteItem from "./FavoriteItem";
 
 const ConnectedFavorites = props => {
   useEffect(() => {
