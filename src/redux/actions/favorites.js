@@ -1,6 +1,4 @@
-import { SET_FAVORITES } from "./types";
-import { START_FETCHING_FAVORITES } from "./types";
-import { REMOVE_FROM_FAVORITES } from "./types";
+import { SET_FAVORITES, START_FETCHING_FAVORITES, REMOVE_FROM_FAVORITES } from "./types";
 
 function setFavorites(payload) {
   return { type: SET_FAVORITES, payload };
