@@ -2,7 +2,7 @@ import currentImage from "./currentImage";
 import favorites from "./favorites";
 
 const { setCurrentImage, startFetchingCurrentImage } = currentImage;
-const { setFavorites, startFetchingFavorites, removeFromFavorites, startRemovingFromFavorites } = favorites;
+const { setFavorites, startFetchingFavorites, removeFromFavorites, startRemovingFromFavorites, startLikingImage, addImageToFavorites } = favorites;
 
 export {
   setCurrentImage,
@@ -10,5 +10,7 @@ export {
   setFavorites,
   removeFromFavorites,
   startFetchingFavorites,
-  startRemovingFromFavorites
+  startRemovingFromFavorites,
+  startLikingImage,
+  addImageToFavorites
 };

@@ -1,4 +1,4 @@
-import { SET_FAVORITES, REMOVE_FROM_FAVORITES } from "../actions/types";
+import { SET_FAVORITES, REMOVE_FROM_FAVORITES, ADD_IMAGE_TO_FAVORITES } from "../actions/types";
 
 const favorites = (state = [], action) => {
   if (action.type === SET_FAVORITES) {
@@ -8,6 +8,9 @@ const favorites = (state = [], action) => {
     return state.filter(function(value) {
       return value.id !== action.payload.id;
     });
+  }
+  if (action.type === ADD_IMAGE_TO_FAVORITES) {
+    return state.concat([action.payload]);
   }
   return state;
 };

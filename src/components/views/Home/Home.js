@@ -5,7 +5,8 @@ import { faHeart, faTimes } from "@fortawesome/free-solid-svg-icons";
 import Loader from "react-loader-spinner";
 import {
   setCurrentImage,
-  startFetchingCurrentImage
+  startFetchingCurrentImage,
+  startLikingImage
 } from "../../../redux/actions";
 import { GREEN } from "../../../constants/COLORS";
 import style from "./style";
@@ -36,7 +37,7 @@ const ConnectedHome = props => {
         <button className="reject" onClick={props.startFetchingCurrentImage}>
           <FontAwesomeIcon icon={faTimes} />
         </button>
-        <button className="accept">
+        <button className="accept" onClick={() => {props.startLikingImage(props.currentImage)}}>
           <FontAwesomeIcon icon={faHeart} />
         </button>
       </div>
@@ -52,7 +53,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   setCurrentImage,
-  startFetchingCurrentImage
+  startFetchingCurrentImage,
+  startLikingImage
 };
 
 const Home = connect(
