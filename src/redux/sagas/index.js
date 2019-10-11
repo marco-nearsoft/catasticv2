@@ -19,6 +19,7 @@ function* startRemovingImageFromFavorites() {
 
 function* startLikingImage() {
   yield takeEvery(START_LIKING_IMAGE, likeImageOnServer);
+  yield takeEvery(START_LIKING_IMAGE, fetchCurrentImage);
 }
 
 export default function* rootSaga() {
