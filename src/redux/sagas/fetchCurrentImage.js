@@ -3,11 +3,21 @@ import { setCurrentImage } from "../actions/";
 import instance from "../../axiosInstance";
 
 function* fetchCurrentImage() {
-  const response = yield call(instance, "/images");
+  let image;
+  try {
+    const response = yield call(instance, "/images");
 
-  const result = response.data;
+    if (response.status === 200) {
+      image = response.data.image;
+    } else {
+      image = { id: null, url: null };
+    }
+  } catch (error) {
+    console.log(error);
+    image = { id: null, url: null };
+  }
 
-  yield put(setCurrentImage(result.image));
+  yield put(setCurrentImage(image));
 }
 
 export default fetchCurrentImage;
