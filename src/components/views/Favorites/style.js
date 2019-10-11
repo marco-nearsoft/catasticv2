@@ -49,4 +49,10 @@ const style = css`
   }
 `;
 
+export const favoritesListItemBackground = imageURL => (
+  css`
+    background-image: url(${imageURL});
+  `
+)
+
 export default style;

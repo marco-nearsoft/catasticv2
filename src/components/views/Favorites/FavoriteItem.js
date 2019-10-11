@@ -1,14 +1,13 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { favoritesListItemBackground } from "./style";
 
 const FavoriteItem = ({ data, removeFromFavorites }) => {
   return (
     <div
       className="favorites-list-item"
-      style={{
-        backgroundImage: `url(${data.url})`
-      }}
+      css={favoritesListItemBackground(data.url)}
     >
       <FontAwesomeIcon
         icon={faTimes}
