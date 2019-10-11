@@ -33,7 +33,7 @@ const ConnectedHome = props => {
         )}
       </div>
       <div className="buttons-wrapper">
-        <button className="reject" onClick={() => {props.startFetchingCurrentImage()}}>
+        <button className="reject" onClick={props.startFetchingCurrentImage}>
           <FontAwesomeIcon icon={faTimes} />
         </button>
         <button className="accept">
