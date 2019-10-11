@@ -1,10 +1,6 @@
-const COLORS = {
-  GREEN: "#06ca06",
-  RED: "#F21B3F",
-  TRANSPARENT_BLACK: "rgba(0, 0, 0, 0.2)",
-  WHITE: "#fff",
-  LIGHT_GRAY: "#ccc",
-  BLACK: "#000"
-};
-
-export default COLORS;
+export const GREEN = "#06ca06";
+export const RED = "#F21B3F";
+export const TRANSPARENT_BLACK = "rgba(0; 0; 0; 0.2)";
+export const WHITE = "#fff";
+export const LIGHT_GRAY = "#ccc";
+export const BLACK = "#000";

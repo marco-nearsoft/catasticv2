@@ -1,6 +1,5 @@
 import { css } from "@emotion/core";
-import COLORS from "../../constants/COLORS";
-const { BLACK, WHITE } = COLORS;
+import { BLACK, WHITE } from "../../constants/COLORS";
 
 const style = css`
   width: 80%;
