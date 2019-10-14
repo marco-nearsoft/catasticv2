@@ -37,7 +37,13 @@ const ConnectedHome = props => {
         <button className="reject" onClick={props.startFetchingCurrentImage}>
           <FontAwesomeIcon icon={faTimes} />
         </button>
-        <button className="accept" onClick={() => {props.startLikingImage(props.currentImage)}}>
+        <button
+          className="accept"
+          onClick={() => {
+            props.startLikingImage(props.currentImage);
+            props.setCurrentImage({ id: null, url: null });
+          }}
+        >
           <FontAwesomeIcon icon={faHeart} />
         </button>
       </div>
