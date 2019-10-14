@@ -59,10 +59,10 @@ const ConnectedHome = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ currentImage, errorMessage }) => {
   return {
-    currentImage: state.currentImage,
-    errorMessage: state.errorMessage
+    currentImage,
+    errorMessage
   };
 };
 

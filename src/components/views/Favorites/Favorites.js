@@ -34,10 +34,10 @@ const ConnectedFavorites = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ favorites, errorMessage }) => {
   return {
-    favorites: state.favorites,
-    errorMessage: state.errorMessage
+    favorites,
+    errorMessage
   };
 };
 
