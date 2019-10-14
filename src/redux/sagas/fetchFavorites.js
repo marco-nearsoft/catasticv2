@@ -1,5 +1,5 @@
 import { put, call } from "redux-saga/effects";
-import { setFavorites } from "../actions/";
+import { setFavorites, setErrorMessage } from "../actions/";
 import instance from "../../axiosInstance";
 
 function* fetchFavorites() {
@@ -8,13 +8,14 @@ function* fetchFavorites() {
     const response = yield call(instance.get, "/images/fav");
 
     if (response.status === 200) {
+      yield put(setErrorMessage(null));
       images = response.data.images;
     } else {
-      console.log(response);
+      yield put(setErrorMessage("Couldn't load favorites"));
       images = [];
     }
   } catch (error) {
-    console.log(error);
+    yield put(setErrorMessage("Connectivity problems"));
     images = [];
   }
 

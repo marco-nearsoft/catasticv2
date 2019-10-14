@@ -17,7 +17,7 @@ const ConnectedHome = props => {
       props.startFetchingCurrentImage();
     }
   }, []);
-
+console.log(props.errorMessage);
   return (
     <main css={style}>
       <div className="image-wrapper">
@@ -59,7 +59,8 @@ const ConnectedHome = props => {
 
 const mapStateToProps = state => {
   return {
-    currentImage: state.currentImage
+    currentImage: state.currentImage,
+    errorMessage: state.errorMessage
   };
 };
 

@@ -1,5 +1,5 @@
 import { put, call } from "redux-saga/effects";
-import { removeFromFavorites } from "../actions/";
+import { removeFromFavorites, setErrorMessage } from "../actions/";
 import instance from "../../axiosInstance";
 
 function* removeImageFromFavorites(action) {
@@ -10,9 +10,13 @@ function* removeImageFromFavorites(action) {
     );
 
     if (response.status === 200) {
+      yield put(setErrorMessage(null));
       yield put(removeFromFavorites(action.payload));
+    } else {
+      yield put(setErrorMessage("Connectivity problems"));
     }
   } catch (error) {
+    yield put(setErrorMessage("Connectivity problems"));
     console.log(error);
   }
 }
