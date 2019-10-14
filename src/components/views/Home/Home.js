@@ -10,6 +10,7 @@ import {
 } from "../../../redux/actions";
 import { GREEN } from "../../../constants/COLORS";
 import style from "./style";
+import ErrorMessage from "../../ErrorMessage";
 
 const ConnectedHome = props => {
   useEffect(() => {
@@ -17,9 +18,10 @@ const ConnectedHome = props => {
       props.startFetchingCurrentImage();
     }
   }, []);
-console.log(props.errorMessage);
+
   return (
     <main css={style}>
+      <ErrorMessage message={props.errorMessage} />
       <div className="image-wrapper">
         {props.currentImage.url ? (
           <img className="main-image" src={props.currentImage.url} />

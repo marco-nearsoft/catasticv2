@@ -6,6 +6,7 @@ import {
   startFetchingFavorites
 } from "../../../redux/actions/";
 import FavoriteItem from "./FavoriteItem";
+import ErrorMessage from "../../ErrorMessage";
 
 const ConnectedFavorites = props => {
   useEffect(() => {
@@ -16,6 +17,7 @@ const ConnectedFavorites = props => {
 
   return (
     <div css={style}>
+      <ErrorMessage message={props.errorMessage} />
       <span className="page-title">Favorites</span>
       <div className="favorites-list-container">
         {props.favorites.map(image => {
@@ -34,11 +36,15 @@ const ConnectedFavorites = props => {
 
 const mapStateToProps = state => {
   return {
-    favorites: state.favorites
+    favorites: state.favorites,
+    errorMessage: state.errorMessage
   };
 };
 
-const mapDispatchToProps = { startRemovingFromFavorites, startFetchingFavorites };
+const mapDispatchToProps = {
+  startRemovingFromFavorites,
+  startFetchingFavorites
+};
 
 const Favorites = connect(
   mapStateToProps,
