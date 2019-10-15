@@ -62,6 +62,7 @@ const ConnectedHome = props => {
             setLoading(true);
             props.startLikingImage({
               image: props.currentImage,
+              isFavoritesInfoReady: props.isFavoritesInfoReady,
               callback: () => {
                 setLoading(false);
               }
@@ -75,10 +76,11 @@ const ConnectedHome = props => {
   );
 };
 
-const mapStateToProps = ({ currentImage, errorMessage }) => {
+const mapStateToProps = ({ currentImage, errorMessage, isFavoritesInfoReady }) => {
   return {
     currentImage,
-    errorMessage
+    errorMessage,
+    isFavoritesInfoReady
   };
 };
 

@@ -10,7 +10,7 @@ import ErrorMessage from "../../ErrorMessage";
 
 const ConnectedFavorites = props => {
   useEffect(() => {
-    if (!props.favorites.length) {
+    if (!props.isFavoritesInfoReady) {
       props.startFetchingFavorites();
     }
   }, []);
@@ -34,10 +34,11 @@ const ConnectedFavorites = props => {
   );
 };
 
-const mapStateToProps = ({ favorites, errorMessage }) => {
+const mapStateToProps = ({ favorites, errorMessage, isFavoritesInfoReady }) => {
   return {
     favorites,
-    errorMessage
+    errorMessage,
+    isFavoritesInfoReady
   };
 };
 

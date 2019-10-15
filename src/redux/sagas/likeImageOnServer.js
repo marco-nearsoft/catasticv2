@@ -2,7 +2,7 @@ import { put, call } from "redux-saga/effects";
 import { addImageToFavorites, setErrorMessage } from "../actions/";
 import instance from "../../axiosInstance";
 
-function* fetchFavorites(action) {
+function* likeImageOnServer(action) {
   const id = action.payload.image ? action.payload.image.id : null;
   if (id) {
     try {
@@ -13,7 +13,9 @@ function* fetchFavorites(action) {
 
       if (response.status === 200) {
         yield put(setErrorMessage(null));
-        yield put(addImageToFavorites(response.data.image));
+        if (action.payload.isFavoritesInfoReady) {
+          yield put(addImageToFavorites(response.data.image));
+        }
       } else {
         yield put(setErrorMessage("Couldn't mark image as liked"));
         console.log(response);
@@ -25,4 +27,4 @@ function* fetchFavorites(action) {
   }
 }
 
-export default fetchFavorites;
+export default likeImageOnServer;
