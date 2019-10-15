@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -19,6 +19,8 @@ const ConnectedHome = props => {
     }
   }, []);
 
+  const [loading, setLoading] = useState(false);
+
   return (
     <main css={style}>
       <ErrorMessage message={props.errorMessage} />
@@ -28,7 +30,6 @@ const ConnectedHome = props => {
         ) : (
           <Loader
             color={GREEN}
-            className="custom-loader"
             type="Circles"
             height={100}
             width={100}
@@ -37,19 +38,34 @@ const ConnectedHome = props => {
       </div>
       <div className="buttons-wrapper">
         <button
-          className="reject"
+          className={loading ? "inactive" : "reject"}
           onClick={() => {
-            props.startFetchingCurrentImage();
-            props.setCurrentImage({ id: null, url: null });
+            if (loading) {
+              return;
+            }
+            setLoading(true);
+            props.startFetchingCurrentImage({
+              callback: () => {
+                setLoading(false);
+              }
+            });
           }}
         >
           <FontAwesomeIcon icon={faTimes} />
         </button>
         <button
-          className="accept"
+          className={loading ? "inactive" : "accept"}
           onClick={() => {
-            props.startLikingImage(props.currentImage);
-            props.setCurrentImage({ id: null, url: null });
+            if (loading) {
+              return;
+            }
+            setLoading(true);
+            props.startLikingImage({
+              image: props.currentImage,
+              callback: () => {
+                setLoading(false);
+              }
+            });
           }}
         >
           <FontAwesomeIcon icon={faHeart} />

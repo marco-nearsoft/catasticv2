@@ -3,11 +3,12 @@ import { addImageToFavorites, setErrorMessage } from "../actions/";
 import instance from "../../axiosInstance";
 
 function* fetchFavorites(action) {
-  if (action.payload.id) {
+  const id = action.payload.image ? action.payload.image.id : null;
+  if (id) {
     try {
       const response = yield call(
         instance.post,
-        `/images/fav/${action.payload.id}`
+        `/images/fav/${id}`
       );
 
       if (response.status === 200) {
