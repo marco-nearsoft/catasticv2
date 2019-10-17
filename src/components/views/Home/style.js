@@ -52,7 +52,7 @@ const style = css`
   .buttons-wrapper .accept:hover {
     color: ${GREEN};
   }
-  .buttons-wrapper .inactive {
+  .buttons-wrapper :disabled {
     color: #ccc;
   }
 `;

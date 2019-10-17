@@ -28,21 +28,14 @@ const ConnectedHome = props => {
         {props.currentImage.url ? (
           <img className="main-image" src={props.currentImage.url} />
         ) : (
-          <Loader
-            color={GREEN}
-            type="Circles"
-            height={100}
-            width={100}
-          />
+          <Loader color={GREEN} type="Circles" height={100} width={100} />
         )}
       </div>
       <div className="buttons-wrapper">
         <button
-          className={loading ? "inactive" : "reject"}
+          className={loading ? "" : "reject"}
+          disabled={loading}
           onClick={() => {
-            if (loading) {
-              return;
-            }
             setLoading(true);
             props.startFetchingCurrentImage({
               callback: () => {
@@ -54,11 +47,9 @@ const ConnectedHome = props => {
           <FontAwesomeIcon icon={faTimes} />
         </button>
         <button
-          className={loading ? "inactive" : "accept"}
+          className={loading ? "" : "accept"}
+          disabled={loading}
           onClick={() => {
-            if (loading) {
-              return;
-            }
             setLoading(true);
             props.startLikingImage({
               image: props.currentImage,
@@ -76,7 +67,11 @@ const ConnectedHome = props => {
   );
 };
 
-const mapStateToProps = ({ currentImage, errorMessage, isFavoritesInfoReady }) => {
+const mapStateToProps = ({
+  currentImage,
+  errorMessage,
+  isFavoritesInfoReady
+}) => {
   return {
     currentImage,
     errorMessage,
