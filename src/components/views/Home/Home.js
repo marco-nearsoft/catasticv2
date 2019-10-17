@@ -10,20 +10,24 @@ import {
 } from "../../../redux/actions";
 import { GREEN } from "../../../constants/COLORS";
 import style from "./style";
-import ErrorMessage from "../../ErrorMessage";
+import useErrorMessage from "./useErrorMessage";
 
 const ConnectedHome = props => {
   useEffect(() => {
     if (!props.currentImage.url) {
-      props.startFetchingCurrentImage();
+      props.startFetchingCurrentImage({
+        onSuccess: () => {},
+        onError: () => {}
+      });
     }
   }, []);
 
   const [loading, setLoading] = useState(false);
+  const { ErrorMessage, setErrorMessage } = useErrorMessage();
 
   return (
     <main css={style}>
-      <ErrorMessage message={props.errorMessage} />
+      <ErrorMessage />
       <div className="image-wrapper">
         {props.currentImage.url ? (
           <img className="main-image" src={props.currentImage.url} />
@@ -38,8 +42,13 @@ const ConnectedHome = props => {
           onClick={() => {
             setLoading(true);
             props.startFetchingCurrentImage({
-              callback: () => {
+              onSuccess: () => {
                 setLoading(false);
+                setErrorMessage(null);
+              },
+              onError: () => {
+                setLoading(false);
+                setErrorMessage("Couldn't load image");
               }
             });
           }}
@@ -54,8 +63,13 @@ const ConnectedHome = props => {
             props.startLikingImage({
               image: props.currentImage,
               isFavoritesInfoReady: props.isFavoritesInfoReady,
-              callback: () => {
+              onSuccess: () => {
                 setLoading(false);
+                setErrorMessage(null);
+              },
+              onError: () => {
+                setLoading(false);
+                setErrorMessage("Couldn't load image");
               }
             });
           }}

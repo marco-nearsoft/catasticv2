@@ -1,22 +1,20 @@
 import { put, call } from "redux-saga/effects";
-import { setCurrentImage, setErrorMessage } from "../actions/";
+import { setCurrentImage } from "../actions/";
 import instance from "../../axiosInstance";
 
 function* fetchCurrentImage(action) {
+  const { onSuccess, onError } = action.payload;
   try {
     const response = yield call(instance, "/images");
 
     if (response.status === 200) {
-      yield put(setErrorMessage(null));
-      if (action.payload) {
-        action.payload.callback();
-      }
+      onSuccess();
       yield put(setCurrentImage(response.data.image));
     } else {
-      yield put(setErrorMessage("Couldn't load image"));
+      onError();
     }
   } catch (error) {
-    yield put(setErrorMessage("Connectivity problems"));
+    onError();
   }
 }
 
