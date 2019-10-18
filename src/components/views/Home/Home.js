@@ -12,7 +12,7 @@ import { GREEN } from "../../../constants/COLORS";
 import style from "./style";
 import useErrorMessage from "../../useErrorMessage";
 
-const ConnectedHome = props => {
+const ConnectedHome = props => { 
   useEffect(() => {
     if (!props.currentImage.url) {
       props.startFetchingCurrentImage({
