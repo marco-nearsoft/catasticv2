@@ -10,7 +10,7 @@ import {
 } from "../../../redux/actions";
 import { GREEN } from "../../../constants/COLORS";
 import style from "./style";
-import useErrorMessage from "./useErrorMessage";
+import useErrorMessage from "../../useErrorMessage";
 
 const ConnectedHome = props => {
   useEffect(() => {
