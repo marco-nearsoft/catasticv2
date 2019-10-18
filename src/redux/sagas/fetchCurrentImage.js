@@ -8,13 +8,13 @@ function* fetchCurrentImage(action) {
     const response = yield call(instance, "/images");
 
     if (response.status === 200) {
-      onSuccess();
+      onSuccess(null);
       yield put(setCurrentImage(response.data.image));
     } else {
-      onError();
+      onError("Couldn't load image");
     }
   } catch (error) {
-    onError();
+    onError("Couldn't load image");
   }
 }
 

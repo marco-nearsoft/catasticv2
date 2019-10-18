@@ -12,16 +12,16 @@ function* likeImageOnServer(action) {
     const response = yield call(instance.post, `/images/fav/${id}`);
 
     if (response.status === 200) {
-      onSuccess();
+      onSuccess(null);
       if (action.payload.isFavoritesInfoReady) {
         yield put(addImageToFavorites(response.data.image));
       }
     } else {
-      onError();
+      onError("Couldn't mark image as liked");
       console.log(response);
     }
   } catch (error) {
-    onError();
+    onError("Couldn't mark image as liked");
     console.log(error);
   }
 }

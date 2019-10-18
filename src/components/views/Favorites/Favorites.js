@@ -12,11 +12,11 @@ const ConnectedFavorites = props => {
   useEffect(() => {
     if (!props.isFavoritesInfoReady) {
       props.startFetchingFavorites({
-        onSuccess: () => {
-          setErrorMessage(null);
+        onSuccess: message => {
+          setErrorMessage(message);
         },
-        onError: () => {
-          setErrorMessage("Couldn't load favorites");
+        onError: message => {
+          setErrorMessage(message);
         }
       });
     }
@@ -34,7 +34,17 @@ const ConnectedFavorites = props => {
             <FavoriteItem
               image={image}
               key={image.id}
-              startRemovingFromFavorites={props.startRemovingFromFavorites}
+              startRemovingFromFavorites={image => {
+                props.startRemovingFromFavorites({
+                  image,
+                  onSuccess: message => {
+                    setErrorMessage(message);
+                  },
+                  onError: message => {
+                    setErrorMessage(message);
+                  }
+                });
+              }}
             />
           );
         })}

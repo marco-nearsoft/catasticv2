@@ -12,13 +12,13 @@ function* removeImageFromFavorites(action) {
     const response = yield call(instance.delete, `/images/fav/${id}`);
 
     if (response.status === 200) {
-      onSuccess();
+      onSuccess(null);
       yield put(removeFromFavorites(image));
     } else {
-      onError();
+      onError("Couldn't remove image from favorites");
     }
   } catch (error) {
-    onError();
+    onError("Couldn't remove image from favorites");
     console.log(error);
   }
 }

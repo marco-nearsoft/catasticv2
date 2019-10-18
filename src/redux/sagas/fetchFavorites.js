@@ -8,14 +8,14 @@ function* fetchFavorites(action) {
     const response = yield call(instance.get, "/images/fav");
 
     if (response.status === 200) {
-      onSuccess();
+      onSuccess(null);
       yield put(setFavoritesStatus(true));
       yield put(setFavorites(response.data.images));
     } else {
-      onError();
+      onError("Couldn't load favorites");
     }
   } catch (error) {
-    onError();
+    onError("Couldn't load favorites");
   }
 }
 

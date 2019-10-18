@@ -13,7 +13,7 @@ const FavoriteItem = ({ image, startRemovingFromFavorites }) => {
         icon={faTimes}
         className="remove-button"
         onClick={() => {
-          startRemovingFromFavorites({image, onSuccess: () => {}, onError: () => {}});
+          startRemovingFromFavorites(image);
         }}
       />
     </div>

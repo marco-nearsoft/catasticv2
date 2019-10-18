@@ -16,8 +16,12 @@ const ConnectedHome = props => {
   useEffect(() => {
     if (!props.currentImage.url) {
       props.startFetchingCurrentImage({
-        onSuccess: () => {},
-        onError: () => {}
+        onSuccess: message => {
+          setErrorMessage(message);
+        },
+        onError: message => {
+          setErrorMessage(message);
+        }
       });
     }
   }, []);
@@ -42,13 +46,13 @@ const ConnectedHome = props => {
           onClick={() => {
             setLoading(true);
             props.startFetchingCurrentImage({
-              onSuccess: () => {
+              onSuccess: message => {
                 setLoading(false);
-                setErrorMessage(null);
+                setErrorMessage(message);
               },
-              onError: () => {
+              onError: message => {
                 setLoading(false);
-                setErrorMessage("Couldn't load image");
+                setErrorMessage(message);
               }
             });
           }}
@@ -63,13 +67,13 @@ const ConnectedHome = props => {
             props.startLikingImage({
               image: props.currentImage,
               isFavoritesInfoReady: props.isFavoritesInfoReady,
-              onSuccess: () => {
+              onSuccess: message => {
                 setLoading(false);
-                setErrorMessage(null);
+                setErrorMessage(message);
               },
-              onError: () => {
+              onError: message => {
                 setLoading(false);
-                setErrorMessage("Couldn't load image");
+                setErrorMessage(message);
               }
             });
           }}
