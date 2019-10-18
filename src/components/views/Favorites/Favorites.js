@@ -6,24 +6,33 @@ import {
   startFetchingFavorites
 } from "../../../redux/actions/";
 import FavoriteItem from "./FavoriteItem";
-import ErrorMessage from "../../ErrorMessage";
+import useErrorMessage from "../../useErrorMessage";
 
 const ConnectedFavorites = props => {
   useEffect(() => {
     if (!props.isFavoritesInfoReady) {
-      props.startFetchingFavorites();
+      props.startFetchingFavorites({
+        onSuccess: () => {
+          setErrorMessage(null);
+        },
+        onError: () => {
+          setErrorMessage("Couldn't load favorites");
+        }
+      });
     }
   }, []);
 
+  const { ErrorMessage, setErrorMessage } = useErrorMessage();
+
   return (
     <div css={style}>
-      <ErrorMessage message={props.errorMessage} />
+      <ErrorMessage />
       <span className="page-title">Favorites</span>
       <div className="favorites-list-container">
         {props.favorites.map(image => {
           return (
             <FavoriteItem
-              data={image}
+              image={image}
               key={image.id}
               startRemovingFromFavorites={props.startRemovingFromFavorites}
             />
@@ -34,10 +43,9 @@ const ConnectedFavorites = props => {
   );
 };
 
-const mapStateToProps = ({ favorites, errorMessage, isFavoritesInfoReady }) => {
+const mapStateToProps = ({ favorites, isFavoritesInfoReady }) => {
   return {
     favorites,
-    errorMessage,
     isFavoritesInfoReady
   };
 };

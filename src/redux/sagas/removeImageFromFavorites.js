@@ -1,25 +1,25 @@
 import { put, call } from "redux-saga/effects";
-import { removeFromFavorites, setErrorMessage } from "../actions/";
+import { removeFromFavorites } from "../actions/";
 import instance from "../../axiosInstance";
 
 function* removeImageFromFavorites(action) {
-  if (action.payload.id) {
-    try {
-      const response = yield call(
-        instance.delete,
-        `/images/fav/${action.payload.id}`
-      );
+  const { onSuccess, onError, image } = action.payload;
+  const { id } = image;
+  if (!id) {
+    return;
+  }
+  try {
+    const response = yield call(instance.delete, `/images/fav/${id}`);
 
-      if (response.status === 200) {
-        yield put(setErrorMessage(null));
-        yield put(removeFromFavorites(action.payload));
-      } else {
-        yield put(setErrorMessage("Connectivity problems"));
-      }
-    } catch (error) {
-      yield put(setErrorMessage("Connectivity problems"));
-      console.log(error);
+    if (response.status === 200) {
+      onSuccess();
+      yield put(removeFromFavorites(image));
+    } else {
+      onError();
     }
+  } catch (error) {
+    onError();
+    console.log(error);
   }
 }
 

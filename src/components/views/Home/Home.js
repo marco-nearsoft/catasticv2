@@ -81,14 +81,9 @@ const ConnectedHome = props => {
   );
 };
 
-const mapStateToProps = ({
-  currentImage,
-  errorMessage,
-  isFavoritesInfoReady
-}) => {
+const mapStateToProps = ({ currentImage, isFavoritesInfoReady }) => {
   return {
     currentImage,
-    errorMessage,
     isFavoritesInfoReady
   };
 };
