@@ -1,10 +1,12 @@
 import { SET_CURRENT_IMAGE } from "../actions/types";
 
-const currentImage = (state = {id: null, url: null}, action) => {
-  if (action.type === SET_CURRENT_IMAGE) {
-    return action.payload;
+const currentImage = (state = { id: null, url: null }, action) => {
+  switch (action.type) {
+    case SET_CURRENT_IMAGE:
+      return action.payload;
+    default:
+      return state;
   }
-  return state;
 };
 
 export default currentImage;

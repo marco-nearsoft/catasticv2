@@ -2,28 +2,49 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import style from "./style";
 import {
-  removeFromFavorites,
+  startRemovingFromFavorites,
   startFetchingFavorites
 } from "../../../redux/actions/";
 import FavoriteItem from "./FavoriteItem";
+import useErrorMessage from "../../useErrorMessage";
 
 const ConnectedFavorites = props => {
   useEffect(() => {
-    if (!props.favorites.length) {
-      props.startFetchingFavorites();
+    if (!props.isFavoritesInfoReady) {
+      props.startFetchingFavorites({
+        onSuccess: message => {
+          setErrorMessage(message);
+        },
+        onError: message => {
+          setErrorMessage(message);
+        }
+      });
     }
   }, []);
 
+  const { ErrorMessage, setErrorMessage } = useErrorMessage();
+
   return (
     <div css={style}>
+      <ErrorMessage />
       <span className="page-title">Favorites</span>
       <div className="favorites-list-container">
         {props.favorites.map(image => {
           return (
             <FavoriteItem
-              data={image}
+              image={image}
               key={image.id}
-              removeFromFavorites={props.removeFromFavorites}
+              startRemovingFromFavorites={image => {
+                props.startRemovingFromFavorites({
+                  image,
+                  onSuccess: message => {
+                    setErrorMessage(message);
+                  },
+                  onError: message => {
+                    setErrorMessage(message);
+                  }
+                });
+              }}
             />
           );
         })}
@@ -32,13 +53,17 @@ const ConnectedFavorites = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ favorites, isFavoritesInfoReady }) => {
   return {
-    favorites: state.favorites
+    favorites,
+    isFavoritesInfoReady
   };
 };
 
-const mapDispatchToProps = { removeFromFavorites, startFetchingFavorites };
+const mapDispatchToProps = {
+  startRemovingFromFavorites,
+  startFetchingFavorites
+};
 
 const Favorites = connect(
   mapStateToProps,

@@ -52,8 +52,8 @@ const style = css`
   .buttons-wrapper .accept:hover {
     color: ${GREEN};
   }
-  .custom-loader {
-    color: ${GREEN};
+  .buttons-wrapper :disabled {
+    color: #ccc;
   }
 `;
 

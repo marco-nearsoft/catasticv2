@@ -2,12 +2,20 @@ import { put, call } from "redux-saga/effects";
 import { setCurrentImage } from "../actions/";
 import instance from "../../axiosInstance";
 
-function* fetchCurrentImage() {
-  const response = yield call(instance, "/images");
+function* fetchCurrentImage(action) {
+  const { onSuccess, onError } = action.payload;
+  try {
+    const response = yield call(instance, "/images");
 
-  const result = response.data;
-
-  yield put(setCurrentImage(result.image));
+    if (response.status === 200) {
+      onSuccess(null);
+      yield put(setCurrentImage(response.data.image));
+    } else {
+      onError("Couldn't load image");
+    }
+  } catch (error) {
+    onError("Couldn't load image");
+  }
 }
 
 export default fetchCurrentImage;
